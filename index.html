@@ -1,134 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="title" content="Ismail Tasdelen - Security Researcher">
-<meta name="description" content="Location : 127.0.0.1:1337/ismailtasdelen &amp; U1FgpxieKrOnly5GJg3TiA==">
-<meta name="keywords" content="bug bounty, security researcher, bug bounty hunter, hall of  fame, white hat, penetration tester, pentester, security engineer, information security engineer, information security specialist, information security expert, security expert, cyber security expert, cyber security specialist, hacker, white hacker, web application security, application security, cyber security, web security, network security, ismail tasdelen, ismail taşdelen, information security, application security engineer, bilgi güvenliği, bilgi güvenliği uzmanı, siber güvenlik, siber güvenlik uzmanı, güvenlik araştırmacısı, sızma testi uzmanı">
-<meta name="robots" content="index, follow">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="revisit-after" content="1 days">
-<meta name="author" content="Ismail Tasdelen">   
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="shortcut icon" href="/images/logo.png" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link href='https://fonts.googleapis.com/css?family=Satisfy' rel='stylesheet'>
-<script src='https://www.google.com/recaptcha/api.js'></script>
-<style>
-body {
-    font-family: 'Satisfy';
-}
-</style> 
-<script type="text/javascript" src="/js/gtag.js"></script>
-<script type="text/javascript" src="/js/adsbygoogle.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Generator</title>
+    <style>
+        body {
+            background: rgb(200, 220, 224);
+        }
 
+        .form {
+            font-family: Helvetica, sans-serif;
+            max-width: 500px;
+            margin: 100px auto;
+            text-align: center;
+            padding: 16px;
+            background: #ffffff;
+        }
+
+        .form h1 {
+            background: #03773f;
+            padding: 20px 0;
+            font-weight: 300;
+            text-align: center;
+            color: #fff;
+            margin: -16px -16px 16px -16px;
+            font-size: 25px;
+        }
+
+        .form input[type="url"] {
+            box-sizing: border-box;
+            width: 100%;
+            background: #fff;
+            margin-bottom: 4%;
+            border: 1px solid #ccc;
+            padding: 4%;
+            font-size: 17px;
+            color: rgb(9, 61, 125);
+        }
+
+        .form input[type="url"]:focus {
+            box-shadow: 0 0 5px #5868bf;
+            padding: 4%;
+            border: 1px solid #5868bf;
+        }
+
+        .form button {
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            width: 180px;
+            margin: 0 auto;
+            padding: 3%;
+            background: #0853b6;
+            border: none;
+            border-radius: 3px;
+            font-size: 17px;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .form button:hover {
+            background: rgba(88, 104, 191, 0.5);
+        }
+
+        #qrcode-container {
+            display: none;
+        }
+
+        .qrcode {
+            padding: 16px;
+            margin-bottom: 30px;
+        }
+
+        .qrcode img {
+            margin: 0 auto;
+            box-shadow: 0 0 10px rgba(67, 67, 68, 0.25);
+            padding: 4px;
+        }
+
+        #download-btn {
+            display: none;
+            background: #4caf50;
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
 </head>
-    
-<body bgcolor="#FCF7FC">
-    
-<h1><center> Ismail Tasdelen </center></h1>
-    <center>
-        <iframe src="https://giphy.com/embed/ASrlUVyh6IZSo" width="400" height="200" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/ASrlUVyh6IZSo"></a></p>
-    </center>
-<h3><center> Penetration Tester &amp; Bug Hunter </center></h3>
-    
-<center>
-  
-<iframe frameborder="0" height="1" id="stop" name="stop" scrolling="no" src="http://www.youtube.com/embed/1-xGerv5FOk?rel=0&amp;autoplay=1" width="1"></iframe>
+<body>
+<script src="https://cdn.rawgit.com/davidshimjs/qrcodejs/gh-pages/qrcode.min.js"></script>
 
-<a href="https://twitter.com/@ismailtsdln" class="btn btn-link" style="color:black" target="_blank"><i class="fa fa-twitter fa-fw"></i></a>
+<div class="form">
+    <h1>QR Code Generator</h1>
+    <form>
+        <input type="url" id="website" name="website" placeholder="https://thefactspk.com type your text here" required />
 
-<a href="https://www.linkedin.com/in/ismailtasdelen" class="btn btn-link" style="color:black" target="_blank"><i class="fa fa-linkedin fa-fw"></i></a>
+        <div id="qrcode-container">
+            <div id="qrcode" class="qrcode"></div>
+            <button id="download-btn" onclick="downloadQRCode()">Download QR Code</button>
+        </div>
 
-<a href="https://github.com/ismailtasdelen" class="btn btn-link" style="color:black" target="_blank"><i class="fa fa-github fa-fw"></i></a>
+        <button type="button" onclick="generateQRCode()">Generate QR Code</button>
+    </form>
 
-<a href="https://www.youtube.com/channel/UCPqc50Wmt6ZF2BJWtNJlq-g" class="btn btn-link" style="color:black" target="_blank"><i class="fa fa-youtube-play fa-fw"></i></a>
+    <script type="text/javascript">
+        function generateQRCode() {
+            let website = document.getElementById("website").value;
+            if (website) {
+                let qrcodeContainer = document.getElementById("qrcode");
+                qrcodeContainer.innerHTML = "";
+                new QRCode(qrcodeContainer, website);
 
-<a href="https://t.me/ismailtasdelen" class="btn btn-link" style="color:black" target="_blank"><i class="fa fa-telegram fa-fw"></i></a>
-
-<a href="mailto:ismailtasdelen@protonmail.com" class="btn btn-link" style="color:black" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
-
-<a href="https://github.com/ismailtasdelen/ismailtasdelen.github.io/raw/master/files/resume/cv_ismailtasdelen.pdf" class="btn btn-link" style="color:black"><i class="fa fa-cloud-download fa-fw"></i></a>
-
-<a href="https://dribbble.com/ismailtasdelen" class="btn btn-link" style="color:black" target="_blank"><i class="fa fa-dribbble fa-fw"></i></a>
-    
-<a href="https://www.google.com.tr/maps/place/Istanbul/@41.0049823,28.7319903,10z" class="btn btn-link" style="color:black" target="_blank"><i class="fa fa-map-marker fa-fw"></i></a>
-
-<SCRIPT LANGUAGE="Javascript">
-var isNS = (navigator.appName == "Netscape") ? 1 : 0;
-var EnableRightClick = 0;
-if(isNS)
-document.captureEvents(Event.MOUSEDOWN||Event.MOUSEUP);
-function mischandler(){
-if(EnableRightClick==1){ return true; }
-else {return false; }
-}
-function mousehandler(e){
-if(EnableRightClick==1){ return true; }
-var myevent = (isNS) ? e : event;
-var eventbutton = (isNS) ? myevent.which : myevent.button;
-if((eventbutton==2)||(eventbutton==3)) return false;
-}
-function keyhandler(e) {
-var myevent = (isNS) ? e : window.event;
-if (myevent.keyCode==96)
-EnableRightClick = 1;
-return;
-}
-document.oncontextmenu = mischandler;
-document.onkeypress = keyhandler;
-document.onmousedown = mousehandler;
-document.onmouseup = mousehandler;
-</script>
-    
-<script language="JavaScript">
-    document.onkeypress = function (event) {
-        event = (event || window.event);
-        if (event.keyCode == 123) {
-            return false;
+                document.getElementById("qrcode-container").style.display = "block";
+                document.getElementById("download-btn").style.display = "block";
+            } else {
+                alert("Please enter a valid URL");
+            }
         }
-    }
-    document.onmousedown = function (event) {
-        event = (event || window.event);
-        if (event.keyCode == 123) {
-            return false;
-        }
-    }
-document.onkeydown = function (event) {
-        event = (event || window.event);
-        if (event.keyCode == 123) {
-            return false;
-        }
-    }
-</script>
-    
-<body oncontextmenu="return false" onselectstart="return false" ondragstart="return false"></body>
 
-<script type="text/javascript">
-    var omitformtags=["input", "textarea", "select"]
-    omitformtags=omitformtags.join("|")
-    function disableselect(e){
-        if (omitformtags.indexOf(e.target.tagName.toLowerCase())==-1)
-            return false
+        function downloadQRCode() {
+            let qrcodeContainer = document.getElementById("qrcode");
+            let qrcodeImage = qrcodeContainer.querySelector('img');
+            
+            // Create a temporary link and trigger the download
+            let link = document.createElement('a');
+            link.href = qrcodeImage.src;
+            link.download = 'thefactspkqrcode.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
         }
- 
-        function reEnable(){
-            return true
-        }
- 
-        if (typeof document.onselectstart!="undefined")
-            document.onselectstart=new Function ("return false")
-                else{
-                    document.onmousedown=disableselect
-                    document.onmouseup=reEnable
-                } 
-</script>
-    
-<body onkeydown="return false">
-    
-<div class="g-recaptcha" data-sitekey="6Ldpv0UUAAAAAAI2COHCBltp0dKbrd1n8ilOJBQk"></div>
-    
-</center>
-</center> 
+    </script>
+</div>
+
+<!--footer Start-->
+    <footer>
+         
+              
+                <p> Copyright &copy;<a href="https://thefactspk.com/"> RkUsman Developer </a> - 2024 </p>
+                
+                
+          
+        
+      </footer>
+ <!--footer End-->   
 </body>
 </html>
